@@ -7,13 +7,12 @@
     <li>{{color}}</li>
   </ng-template> -->
 </ul>
-<form>
+<form [formGroup]="colorForm">
 
-  <div>New Color Name: {{newColorName}}</div>
   <div>
-    <label for="new-color-name-input">New Color</label>
-    <input type="text" id="new-color-name-input"
-      name="newColorNameInput" [(ngModel)]="newColorName">
+    <label for="color-name-input">New Color</label>
+    <input type="text" id="color-name-input"
+      formControlName="colorNameInput" >
   </div>
 
   <button type="button" (click)="addColor()">Add Color</button>
