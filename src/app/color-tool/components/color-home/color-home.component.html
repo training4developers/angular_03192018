@@ -1,3 +1,21 @@
 <header>
   <h1>Color Tool</h1>
 </header>
+<ul>
+  <li *ngFor="let color of colors">{{color.name}}</li>
+  <!-- <ng-template ngFor [ngForOf]="colors" let-color>
+    <li>{{color}}</li>
+  </ng-template> -->
+</ul>
+<form>
+
+  <div>New Color Name: {{newColorName}}</div>
+  <div>
+    <label for="new-color-name-input">New Color</label>
+    <input type="text" id="new-color-name-input"
+      name="newColorNameInput" [(ngModel)]="newColorName">
+  </div>
+
+  <button type="button" (click)="addColor()">Add Color</button>
+
+</form>
