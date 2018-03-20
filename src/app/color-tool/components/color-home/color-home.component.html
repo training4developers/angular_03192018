@@ -1,8 +1,24 @@
 <header>
   <h1>Color Tool</h1>
 </header>
+
+<form [formGroup]="sortForm">
+  Select Field:
+  <select formControlName="sortField">
+    <option *ngFor="let field of fields"
+      [value]="field.name">{{field.caption}}</option>
+  </select>
+  <button type="button" (click)="setSortField()">Sort</button>
+</form>
+
+<div>
+  <span (click)="setSortField('id')">Id</span>
+  <span (click)="setSortField('name')">Name</span>
+  <span (click)="setSortField('hexCode')">HexCode</span>
+</div>
+
 <ul>
-  <li *ngFor="let color of colors">{{color.name}}</li>
+  <li *ngFor="let color of sortedColors">{{color.name}}</li>
   <!-- <ng-template ngFor [ngForOf]="colors" let-color>
     <li>{{color}}</li>
   </ng-template> -->

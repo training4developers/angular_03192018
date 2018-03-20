@@ -10,6 +10,11 @@ import { Color } from '../../models/color';
 })
 export class ColorHomeComponent implements OnInit {
 
+  fields = [
+    { name: 'name', caption: 'Name' },
+    { name: 'hexCode', caption: 'HexCode' },
+  ];
+
   colors: Color[] = [
     { id: 1, name: 'hot pink', hexCode: '' },
     { id: 2, name: 'blue', hexCode: '' },
@@ -18,7 +23,28 @@ export class ColorHomeComponent implements OnInit {
     { id: 5, name: 'red', hexCode: '' },
   ];
 
+  get sortedColors() {
+
+    console.log('this.sortField: ', this.sortField);
+
+    const sortFieldName = this.sortField || 'id';
+
+    return this.colors.concat().sort( (a, b) => {
+
+      if (a[sortFieldName] > b[sortFieldName]) {
+        return 1;
+      } else if (a[sortFieldName] < b[sortFieldName]) {
+        return -1;
+      } else {
+        return 0;
+      }
+
+    });
+  }
+
   colorForm: FormGroup;
+  sortForm: FormGroup;
+  sortField: string;
 
   // private fb: FormBuilder;
 
@@ -30,6 +56,11 @@ export class ColorHomeComponent implements OnInit {
     this.colorForm = this.fb.group({
       colorNameInput: [ '' ],
     });
+
+    this.sortForm = this.fb.group({
+      sortField: [''],
+    });
+
   }
 
   ngOnInit() {
@@ -41,6 +72,17 @@ export class ColorHomeComponent implements OnInit {
       name: this.colorForm.value.colorNameInput,
       hexCode: '',
     });
+  }
+
+  setSortField(sortFieldName) {
+
+    if (sortFieldName) {
+      this.sortForm.controls.sortField.setValue(sortFieldName);
+      this.sortField = sortFieldName;
+    } else {
+      this.sortField = this.sortForm.value.sortField;
+    }
+
   }
 
 }
