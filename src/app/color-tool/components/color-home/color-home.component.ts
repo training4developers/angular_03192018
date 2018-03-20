@@ -53,9 +53,7 @@ export class ColorHomeComponent implements OnInit {
   // }
 
   constructor(private fb: FormBuilder) {
-    this.colorForm = this.fb.group({
-      colorNameInput: [ '' ],
-    });
+
 
     this.sortForm = this.fb.group({
       sortField: [''],
@@ -66,15 +64,14 @@ export class ColorHomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  addColor() {
+  addColor(newColor: Color) {
     this.colors.push({
+      ...newColor,
       id: Math.max(...this.colors.map(c => c.id)) + 1,
-      name: this.colorForm.value.colorNameInput,
-      hexCode: '',
     });
   }
 
-  setSortField(sortFieldName) {
+  setSortField(sortFieldName: string) {
 
     if (sortFieldName) {
       this.sortForm.controls.sortField.setValue(sortFieldName);

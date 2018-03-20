@@ -1,36 +1,25 @@
-<header>
-  <h1>Color Tool</h1>
-</header>
-
-<form [formGroup]="sortForm">
-  Select Field:
-  <select formControlName="sortField">
-    <option *ngFor="let field of fields"
-      [value]="field.name">{{field.caption}}</option>
-  </select>
-  <button type="button" (click)="setSortField()">Sort</button>
-</form>
-
-<div>
-  <span (click)="setSortField('id')">Id</span>
-  <span (click)="setSortField('name')">Name</span>
-  <span (click)="setSortField('hexCode')">HexCode</span>
-</div>
-
-<ul>
-  <li *ngFor="let color of sortedColors">{{color.name}}</li>
-  <!-- <ng-template ngFor [ngForOf]="colors" let-color>
-    <li>{{color}}</li>
-  </ng-template> -->
-</ul>
-<form [formGroup]="colorForm">
+<tool-header headerText="Color Tool"></tool-header>
+<section>
+  <form [formGroup]="sortForm">
+    Select Field:
+    <select formControlName="sortField">
+      <option *ngFor="let field of fields"
+        [value]="field.name">{{field.caption}}</option>
+    </select>
+    <button type="button" (click)="setSortField()">Sort</button>
+  </form>
 
   <div>
-    <label for="color-name-input">New Color</label>
-    <input type="text" id="color-name-input"
-      formControlName="colorNameInput" >
+    <span (click)="setSortField('id')">Id</span>
+    <span (click)="setSortField('name')">Name</span>
+    <span (click)="setSortField('hexCode')">HexCode</span>
   </div>
 
-  <button type="button" (click)="addColor()">Add Color</button>
-
-</form>
+  <ul>
+    <li *ngFor="let color of sortedColors">{{color.name}}</li>
+    <!-- <ng-template ngFor [ngForOf]="colors" let-color>
+      <li>{{color}}</li>
+    </ng-template> -->
+  </ul>
+</section>
+<color-form (submitColor)="addColor($event)"></color-form>

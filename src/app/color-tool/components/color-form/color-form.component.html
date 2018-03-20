@@ -1,0 +1,11 @@
+<form [formGroup]="colorForm">
+
+  <div>
+    <label for="color-name-input">New Color</label>
+    <input type="text" id="color-name-input"
+      formControlName="colorNameInput" >
+  </div>
+
+  <button type="button" (click)="submitTheColor()">Add Color</button>
+
+</form>
