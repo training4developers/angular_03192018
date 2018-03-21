@@ -3,10 +3,10 @@ input.ng-invalid {
 }
 
 
-input + span {
+input + span.required {
   display:none;
 }
 
-input.ng-invalid.ng-touched + span {
+input.ng-invalid.ng-touched +  span.required {
   display:inline;
 }

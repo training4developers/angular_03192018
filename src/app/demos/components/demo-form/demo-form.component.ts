@@ -18,6 +18,11 @@ export class DemoFormComponent implements OnInit {
           Validators.required, Validators.minLength(4)
         ],
       }],
+      emailInput: ['', {
+        validators: [
+          Validators.required, Validators.email,
+        ],
+      }]
     });
 
   }

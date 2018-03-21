@@ -1,0 +1,7 @@
+<form [formGroup]="theForm">
+
+  {{theForm.controls.message.errors | json}}
+
+  <input type="text" formControlName="message">
+
+</form>

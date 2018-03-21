@@ -1,9 +1,18 @@
 <form [formGroup]="demoForm">
+
+  <validation-summary [theForm]="demoForm"></validation-summary>
+
   <div>
-    {{this.demoForm.controls.messageInput.errors | json}}
+    <label for="message-input">Message:</label>
+    <input type="text" id="message-input" formControlName="messageInput">
+    <span class="required">Message is required.</span>
   </div>
 
-  <label for="message-input">Message:</label>
-  <input type="text" id="message-input" formControlName="messageInput">
-  <span>Message is required.</span>
+  <div>
+    <label for="email-input">Email:</label>
+    <input type="email" id="email-input" formControlName="emailInput">
+    <span *ngIf="demoForm.controls.emailInput.errors?.required">Email is required.</span>
+    <span *ngIf="demoForm.controls.emailInput.errors?.email">Invalid email format.</span>
+  </div>
+
 </form>
