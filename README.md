@@ -31,6 +31,7 @@ Breaks:
 - [Accelebrate, Inc.](https://www.accelebrate.com/)
 - [WintellectNOW](https://www.wintellectnow.com/Home/Instructor?instructorId=EricGreene) - Special Offer Code: GREENE-2016
 - [Microsoft Virtual Academy](https://mva.microsoft.com/search/SearchResults.aspx#!q=Eric%20Greene&lang=1033)
+- [Angular Tutorial](https://github.com/Microsoft/TechnicalCommunityContent/tree/master/Web%20Frameworks/Angular/Session%202%20-%20Hands%20On)
 
 ### Other Resources
 
