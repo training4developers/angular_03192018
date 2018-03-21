@@ -1,0 +1,9 @@
+<form [formGroup]="demoForm">
+  <div>
+    {{this.demoForm.controls.messageInput.errors | json}}
+  </div>
+
+  <label for="message-input">Message:</label>
+  <input type="text" id="message-input" formControlName="messageInput">
+  <span>Message is required.</span>
+</form>
