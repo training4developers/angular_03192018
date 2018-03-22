@@ -15,5 +15,23 @@
       "name": "blue",
       "hexCode": "#0000ff"
     }
+  ],
+  "cars": [
+    {
+      "id": 1,
+      "make": "Ford",
+      "model": "Fusion",
+      "year": 2017,
+      "color": "red",
+      "price": 23000
+    },
+    {
+      "id": 2,
+      "make": "Ford",
+      "model": "Focus",
+      "year": 2015,
+      "color": "red",
+      "price": 22000
+    }
   ]
 }
