@@ -13,6 +13,7 @@ import { DemoServiceComponent } from './components/demo-service/demo-service.com
 import { MyFirstService } from './services/my-first.service';
 import { MySecondService } from './services/my-second.service';
 import { DemoHttpComponent } from './components/demo-http/demo-http.component';
+import { ColorsSvcService } from './services/colors-svc.service';
 
 
 const mySecondServiceProvider = {
@@ -41,6 +42,7 @@ const mySecondServiceProvider = {
   providers: [
     MyFirstService,
     mySecondServiceProvider,
+    ColorsSvcService,
   ],
 })
 export class DemosModule { }

@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { ColorsSvcService, Color } from '../../services/colors-svc.service';
 
-interface Color {
-  id: number;
-  name: string;
-  hexCode: string;
-}
 
 @Component({
   selector: 'demo-http',
@@ -16,16 +11,16 @@ export class DemoHttpComponent implements OnInit {
 
   private colors: Color[];
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private colorsSvc: ColorsSvcService) { }
 
   ngOnInit() {
 
-    this.httpClient
-      .get<Color[]>('http://localhost:3010/colors')
-      .toPromise()
+    this.colorsSvc.getAll()
       .then(colors => {
         this.colors = colors;
       });
+
+
   }
 
 }
